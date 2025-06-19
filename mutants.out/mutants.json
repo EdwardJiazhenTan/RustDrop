@@ -1,0 +1,5192 @@
+[
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "is_port_available",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 16,
+        "column": 5
+      },
+      "end": {
+        "line": 21,
+        "column": 6
+      }
+    },
+    "replacement": "false",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::from_iter([Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 94,
+        "column": 36
+      },
+      "end": {
+        "line": 94,
+        "column": 37
+      }
+    },
+    "replacement": "==",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device",
+      "return_type": "-> Option<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 145,
+        "column": 21
+      },
+      "end": {
+        "line": 145,
+        "column": 22
+      }
+    },
+    "replacement": "",
+    "genre": "UnaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "list_directory",
+      "return_type": "-> Result<Vec<FileInfo>>",
+      "span": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 55,
+        "column": 5
+      },
+      "end": {
+        "line": 75,
+        "column": 14
+      }
+    },
+    "replacement": "Ok(vec![])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_file_expiry",
+      "return_type": "-> Option<u64>",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 49
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 48,
+        "column": 43
+      },
+      "end": {
+        "line": 48,
+        "column": 47
+      }
+    },
+    "replacement": "Some(0)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/qrcode.rs",
+    "function": {
+      "function_name": "generate_qr_code",
+      "return_type": "-> Result<String>",
+      "span": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 19,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(\"xyzzy\".into())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "format_file_size",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 78,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 79,
+        "column": 5
+      },
+      "end": {
+        "line": 79,
+        "column": 30
+      }
+    },
+    "replacement": "\"xyzzy\".into()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/server.rs",
+    "function": {
+      "function_name": "WebServer::run",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 31,
+        "column": 9
+      },
+      "end": {
+        "line": 46,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::from(Default::default()))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 31,
+        "column": 15
+      },
+      "end": {
+        "line": 31,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::from_iter([Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_true",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 49,
+          "column": 1
+        },
+        "end": {
+          "line": 49,
+          "column": 35
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 49,
+        "column": 29
+      },
+      "end": {
+        "line": 49,
+        "column": 33
+      }
+    },
+    "replacement": "false",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/models.rs",
+    "function": {
+      "function_name": "DeviceInfo::url",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 49,
+        "column": 9
+      },
+      "end": {
+        "line": 49,
+        "column": 52
+      }
+    },
+    "replacement": "String::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 85,
+        "column": 9
+      },
+      "end": {
+        "line": 107,
+        "column": 20
+      }
+    },
+    "replacement": "Ok(vec![])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device::extract_value",
+      "return_type": "-> Option<String>",
+      "span": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 10
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 115,
+        "column": 13
+      },
+      "end": {
+        "line": 120,
+        "column": 14
+      }
+    },
+    "replacement": "Some(String::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device::extract_value",
+      "return_type": "-> Option<String>",
+      "span": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 10
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 115,
+        "column": 13
+      },
+      "end": {
+        "line": 120,
+        "column": 14
+      }
+    },
+    "replacement": "None",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device::extract_value",
+      "return_type": "-> Option<String>",
+      "span": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 10
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 115,
+        "column": 13
+      },
+      "end": {
+        "line": 120,
+        "column": 14
+      }
+    },
+    "replacement": "None",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::register",
+      "return_type": "-> Result<&mut Self>",
+      "span": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 31,
+        "column": 9
+      },
+      "end": {
+        "line": 59,
+        "column": 17
+      }
+    },
+    "replacement": "Ok(Box::leak(Box::new(Default::default())))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 13,
+        "column": 5
+      },
+      "end": {
+        "line": 51,
+        "column": 7
+      }
+    },
+    "replacement": "Ok(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "list_directory",
+      "return_type": "-> Result<Vec<FileInfo>>",
+      "span": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 57,
+        "column": 8
+      },
+      "end": {
+        "line": 57,
+        "column": 9
+      }
+    },
+    "replacement": "",
+    "genre": "UnaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::new(Default::default()))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 27,
+        "column": 15
+      },
+      "end": {
+        "line": 27,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "AppConfig::load",
+      "return_type": "-> Result<Self>",
+      "span": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 98,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 77,
+        "column": 9
+      },
+      "end": {
+        "line": 97,
+        "column": 19
+      }
+    },
+    "replacement": "Ok(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/qrcode.rs",
+    "function": {
+      "function_name": "generate_qr_code",
+      "return_type": "-> Result<String>",
+      "span": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 19,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(\"xyzzy\".into())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::from_iter([Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/qrcode.rs",
+    "function": {
+      "function_name": "generate_qr_code",
+      "return_type": "-> Result<String>",
+      "span": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 19,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(String::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/cli/mod.rs",
+    "function": {
+      "function_name": "Cli::run",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 91,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 41,
+        "column": 9
+      },
+      "end": {
+        "line": 90,
+        "column": 24
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_port",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 34
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 45,
+        "column": 28
+      },
+      "end": {
+        "line": 45,
+        "column": 32
+      }
+    },
+    "replacement": "0",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "format_file_size",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 78,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 79,
+        "column": 5
+      },
+      "end": {
+        "line": 79,
+        "column": 30
+      }
+    },
+    "replacement": "String::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "download_file",
+      "return_type": "-> Result<impl IntoResponse, StatusCode>",
+      "span": {
+        "start": {
+          "line": 116,
+          "column": 1
+        },
+        "end": {
+          "line": 150,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 126,
+        "column": 55
+      },
+      "end": {
+        "line": 126,
+        "column": 57
+      }
+    },
+    "replacement": "!=",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::from(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "find_available_port",
+      "return_type": "-> Option<u16>",
+      "span": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 11,
+        "column": 9
+      }
+    },
+    "replacement": "Some(0)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "list_directory",
+      "return_type": "-> Result<Vec<FileInfo>>",
+      "span": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 55,
+        "column": 5
+      },
+      "end": {
+        "line": 75,
+        "column": 14
+      }
+    },
+    "replacement": "Ok(vec![Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "get_available_port_or_default",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 27,
+        "column": 5
+      },
+      "end": {
+        "line": 47,
+        "column": 19
+      }
+    },
+    "replacement": "1",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 85,
+        "column": 9
+      },
+      "end": {
+        "line": 107,
+        "column": 20
+      }
+    },
+    "replacement": "Ok(vec![Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::from(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 94,
+        "column": 36
+      },
+      "end": {
+        "line": 94,
+        "column": 37
+      }
+    },
+    "replacement": "==",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 31,
+        "column": 15
+      },
+      "end": {
+        "line": 31,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "is_port_available",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 16,
+        "column": 5
+      },
+      "end": {
+        "line": 21,
+        "column": 6
+      }
+    },
+    "replacement": "true",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_true",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 49,
+          "column": 1
+        },
+        "end": {
+          "line": 49,
+          "column": 35
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 49,
+        "column": 29
+      },
+      "end": {
+        "line": 49,
+        "column": 33
+      }
+    },
+    "replacement": "false",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "get_available_port_or_default",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 27,
+        "column": 5
+      },
+      "end": {
+        "line": 47,
+        "column": 19
+      }
+    },
+    "replacement": "0",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_host",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 46,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 54
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 46,
+        "column": 31
+      },
+      "end": {
+        "line": 46,
+        "column": 52
+      }
+    },
+    "replacement": "\"xyzzy\".into()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "find_available_port",
+      "return_type": "-> Option<u16>",
+      "span": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 11,
+        "column": 9
+      }
+    },
+    "replacement": "None",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::new(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 30,
+        "column": 15
+      },
+      "end": {
+        "line": 30,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 49
+      },
+      "end": {
+        "line": 47,
+        "column": 50
+      }
+    },
+    "replacement": "/",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 49
+      },
+      "end": {
+        "line": 47,
+        "column": 50
+      }
+    },
+    "replacement": "/",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 37
+      },
+      "end": {
+        "line": 47,
+        "column": 55
+      }
+    },
+    "replacement": "0",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::from_iter([Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 94,
+        "column": 36
+      },
+      "end": {
+        "line": 94,
+        "column": 37
+      }
+    },
+    "replacement": "<=",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_host",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 46,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 54
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 46,
+        "column": 31
+      },
+      "end": {
+        "line": 46,
+        "column": 52
+      }
+    },
+    "replacement": "\"xyzzy\".into()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 85,
+        "column": 9
+      },
+      "end": {
+        "line": 107,
+        "column": 20
+      }
+    },
+    "replacement": "Ok(vec![Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_host",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 46,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 54
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 46,
+        "column": 31
+      },
+      "end": {
+        "line": 46,
+        "column": 52
+      }
+    },
+    "replacement": "String::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_host",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 46,
+          "column": 1
+        },
+        "end": {
+          "line": 46,
+          "column": 54
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 46,
+        "column": 31
+      },
+      "end": {
+        "line": 46,
+        "column": 52
+      }
+    },
+    "replacement": "String::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 42
+      },
+      "end": {
+        "line": 47,
+        "column": 43
+      }
+    },
+    "replacement": "+",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 32,
+        "column": 15
+      },
+      "end": {
+        "line": 32,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 85,
+        "column": 9
+      },
+      "end": {
+        "line": 107,
+        "column": 20
+      }
+    },
+    "replacement": "Ok(vec![])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "AppConfig::load",
+      "return_type": "-> Result<Self>",
+      "span": {
+        "start": {
+          "line": 76,
+          "column": 5
+        },
+        "end": {
+          "line": 98,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 77,
+        "column": 9
+      },
+      "end": {
+        "line": 97,
+        "column": 19
+      }
+    },
+    "replacement": "Ok(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device",
+      "return_type": "-> Option<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 145,
+        "column": 21
+      },
+      "end": {
+        "line": 145,
+        "column": 22
+      }
+    },
+    "replacement": "",
+    "genre": "UnaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "find_available_port",
+      "return_type": "-> Option<u16>",
+      "span": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 11,
+        "column": 9
+      }
+    },
+    "replacement": "None",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_file_expiry",
+      "return_type": "-> Option<u64>",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 49
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 48,
+        "column": 43
+      },
+      "end": {
+        "line": 48,
+        "column": 47
+      }
+    },
+    "replacement": "Some(1)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "find_available_port",
+      "return_type": "-> Option<u16>",
+      "span": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 11,
+        "column": 9
+      }
+    },
+    "replacement": "Some(1)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "list_directory",
+      "return_type": "-> Result<Vec<FileInfo>>",
+      "span": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 55,
+        "column": 5
+      },
+      "end": {
+        "line": 75,
+        "column": 14
+      }
+    },
+    "replacement": "Ok(vec![Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::unregister",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 82,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 63,
+        "column": 9
+      },
+      "end": {
+        "line": 81,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 42
+      },
+      "end": {
+        "line": 47,
+        "column": 43
+      }
+    },
+    "replacement": "/",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_port",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 34
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 45,
+        "column": 28
+      },
+      "end": {
+        "line": 45,
+        "column": 32
+      }
+    },
+    "replacement": "1",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 32,
+        "column": 15
+      },
+      "end": {
+        "line": 32,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 27,
+        "column": 15
+      },
+      "end": {
+        "line": 27,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "format_file_size",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 78,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 79,
+        "column": 5
+      },
+      "end": {
+        "line": 79,
+        "column": 30
+      }
+    },
+    "replacement": "\"xyzzy\".into()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 49
+      },
+      "end": {
+        "line": 47,
+        "column": 50
+      }
+    },
+    "replacement": "+",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/main.rs",
+    "function": {
+      "function_name": "main",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 16,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 20
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_false",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 50,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 37
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 50,
+        "column": 30
+      },
+      "end": {
+        "line": 50,
+        "column": 35
+      }
+    },
+    "replacement": "true",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_file_expiry",
+      "return_type": "-> Option<u64>",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 49
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 48,
+        "column": 43
+      },
+      "end": {
+        "line": 48,
+        "column": 47
+      }
+    },
+    "replacement": "Some(1)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 13,
+        "column": 5
+      },
+      "end": {
+        "line": 51,
+        "column": 7
+      }
+    },
+    "replacement": "Ok(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/models.rs",
+    "function": {
+      "function_name": "DeviceInfo::url",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 49,
+        "column": 9
+      },
+      "end": {
+        "line": 49,
+        "column": 52
+      }
+    },
+    "replacement": "String::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device::extract_value",
+      "return_type": "-> Option<String>",
+      "span": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 10
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 115,
+        "column": 13
+      },
+      "end": {
+        "line": 120,
+        "column": 14
+      }
+    },
+    "replacement": "Some(\"xyzzy\".into())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "AppConfig::save_example",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 100,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 101,
+        "column": 9
+      },
+      "end": {
+        "line": 104,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![Default::default()]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 94,
+        "column": 36
+      },
+      "end": {
+        "line": 94,
+        "column": 37
+      }
+    },
+    "replacement": "<=",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::from(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 94,
+        "column": 36
+      },
+      "end": {
+        "line": 94,
+        "column": 37
+      }
+    },
+    "replacement": ">",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::from(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device",
+      "return_type": "-> Option<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 111,
+        "column": 9
+      },
+      "end": {
+        "line": 159,
+        "column": 11
+      }
+    },
+    "replacement": "Some(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_false",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 50,
+          "column": 1
+        },
+        "end": {
+          "line": 50,
+          "column": 37
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 50,
+        "column": 30
+      },
+      "end": {
+        "line": 50,
+        "column": 35
+      }
+    },
+    "replacement": "true",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "download_file",
+      "return_type": "-> Result<impl IntoResponse, StatusCode>",
+      "span": {
+        "start": {
+          "line": 116,
+          "column": 1
+        },
+        "end": {
+          "line": 150,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 126,
+        "column": 55
+      },
+      "end": {
+        "line": 126,
+        "column": 57
+      }
+    },
+    "replacement": "!=",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/routes.rs",
+    "function": {
+      "function_name": "create_routes",
+      "return_type": "-> Router",
+      "span": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 25,
+        "column": 5
+      },
+      "end": {
+        "line": 43,
+        "column": 62
+      }
+    },
+    "replacement": "Default::default()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/models.rs",
+    "function": {
+      "function_name": "DeviceInfo::url",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 49,
+        "column": 9
+      },
+      "end": {
+        "line": 49,
+        "column": 52
+      }
+    },
+    "replacement": "\"xyzzy\".into()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 29,
+        "column": 15
+      },
+      "end": {
+        "line": 29,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 94,
+        "column": 36
+      },
+      "end": {
+        "line": 94,
+        "column": 37
+      }
+    },
+    "replacement": ">",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "AppConfig::save_example",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 100,
+          "column": 5
+        },
+        "end": {
+          "line": 105,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 101,
+        "column": 9
+      },
+      "end": {
+        "line": 104,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 37
+      },
+      "end": {
+        "line": 47,
+        "column": 55
+      }
+    },
+    "replacement": "1",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 97,
+        "column": 21
+      },
+      "end": {
+        "line": 101,
+        "column": 23
+      }
+    },
+    "replacement": "",
+    "genre": "MatchArm"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 26,
+        "column": 15
+      },
+      "end": {
+        "line": 26,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device",
+      "return_type": "-> Option<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 111,
+        "column": 9
+      },
+      "end": {
+        "line": 159,
+        "column": 11
+      }
+    },
+    "replacement": "None",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::register",
+      "return_type": "-> Result<&mut Self>",
+      "span": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 60,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 31,
+        "column": 9
+      },
+      "end": {
+        "line": 59,
+        "column": 17
+      }
+    },
+    "replacement": "Ok(Box::leak(Box::new(Default::default())))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/models.rs",
+    "function": {
+      "function_name": "DeviceInfo::url",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 5
+        },
+        "end": {
+          "line": 50,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 49,
+        "column": 9
+      },
+      "end": {
+        "line": 49,
+        "column": 52
+      }
+    },
+    "replacement": "\"xyzzy\".into()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device",
+      "return_type": "-> Option<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 111,
+        "column": 9
+      },
+      "end": {
+        "line": 159,
+        "column": 11
+      }
+    },
+    "replacement": "None",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "get_available_port_or_default",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 27,
+        "column": 5
+      },
+      "end": {
+        "line": 47,
+        "column": 19
+      }
+    },
+    "replacement": "0",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::from(Default::default()))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::from_iter([Default::default()])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 42
+      },
+      "end": {
+        "line": 47,
+        "column": 43
+      }
+    },
+    "replacement": "/",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "AppConfig::from_toml",
+      "return_type": "-> Result<Self>",
+      "span": {
+        "start": {
+          "line": 107,
+          "column": 5
+        },
+        "end": {
+          "line": 110,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 108,
+        "column": 9
+      },
+      "end": {
+        "line": 109,
+        "column": 19
+      }
+    },
+    "replacement": "Ok(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "list_directory",
+      "return_type": "-> Result<Vec<FileInfo>>",
+      "span": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 57,
+        "column": 8
+      },
+      "end": {
+        "line": 57,
+        "column": 9
+      }
+    },
+    "replacement": "",
+    "genre": "UnaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::unregister",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 62,
+          "column": 5
+        },
+        "end": {
+          "line": 82,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 63,
+        "column": 9
+      },
+      "end": {
+        "line": 81,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::new(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "list_directory",
+      "return_type": "-> Result<Vec<FileInfo>>",
+      "span": {
+        "start": {
+          "line": 54,
+          "column": 1
+        },
+        "end": {
+          "line": 76,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 55,
+        "column": 5
+      },
+      "end": {
+        "line": 75,
+        "column": 14
+      }
+    },
+    "replacement": "Ok(vec![])",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "health_check",
+      "return_type": "-> Json<serde_json::Value>",
+      "span": {
+        "start": {
+          "line": 16,
+          "column": 1
+        },
+        "end": {
+          "line": 23,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 17,
+        "column": 5
+      },
+      "end": {
+        "line": 22,
+        "column": 8
+      }
+    },
+    "replacement": "Json::new(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "is_port_available",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 16,
+        "column": 5
+      },
+      "end": {
+        "line": 21,
+        "column": 6
+      }
+    },
+    "replacement": "false",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "AppConfig::from_toml",
+      "return_type": "-> Result<Self>",
+      "span": {
+        "start": {
+          "line": 107,
+          "column": 5
+        },
+        "end": {
+          "line": 110,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 108,
+        "column": 9
+      },
+      "end": {
+        "line": 109,
+        "column": 19
+      }
+    },
+    "replacement": "Ok(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 15
+      },
+      "end": {
+        "line": 28,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "find_available_port",
+      "return_type": "-> Option<u16>",
+      "span": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 11,
+        "column": 9
+      }
+    },
+    "replacement": "Some(0)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device::extract_value",
+      "return_type": "-> Option<String>",
+      "span": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 10
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 115,
+        "column": 13
+      },
+      "end": {
+        "line": 120,
+        "column": 14
+      }
+    },
+    "replacement": "Some(String::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/app/mod.rs",
+    "function": {
+      "function_name": "App::run",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 123,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 46,
+        "column": 9
+      },
+      "end": {
+        "line": 122,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 26,
+        "column": 15
+      },
+      "end": {
+        "line": 26,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::new(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![Default::default()]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_file_expiry",
+      "return_type": "-> Option<u64>",
+      "span": {
+        "start": {
+          "line": 48,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 49
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 48,
+        "column": 43
+      },
+      "end": {
+        "line": 48,
+        "column": 47
+      }
+    },
+    "replacement": "Some(0)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 15
+      },
+      "end": {
+        "line": 28,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![Default::default()]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/routes.rs",
+    "function": {
+      "function_name": "create_routes",
+      "return_type": "-> Router",
+      "span": {
+        "start": {
+          "line": 23,
+          "column": 1
+        },
+        "end": {
+          "line": 44,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 25,
+        "column": 5
+      },
+      "end": {
+        "line": 43,
+        "column": 62
+      }
+    },
+    "replacement": "Default::default()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 37
+      },
+      "end": {
+        "line": 47,
+        "column": 55
+      }
+    },
+    "replacement": "0",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 42
+      },
+      "end": {
+        "line": 47,
+        "column": 43
+      }
+    },
+    "replacement": "+",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/app/mod.rs",
+    "function": {
+      "function_name": "App::run",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 123,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 46,
+        "column": 9
+      },
+      "end": {
+        "line": 122,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "get_device_info",
+      "return_type": "-> Json<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 25,
+          "column": 1
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 28,
+        "column": 5
+      },
+      "end": {
+        "line": 28,
+        "column": 22
+      }
+    },
+    "replacement": "Json::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "discover_devices",
+      "return_type": "-> Result<Json<Vec<DeviceInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 152,
+          "column": 1
+        },
+        "end": {
+          "line": 160,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 153,
+        "column": 5
+      },
+      "end": {
+        "line": 159,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 30,
+        "column": 15
+      },
+      "end": {
+        "line": 30,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::new(Default::default()))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_port",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 34
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 45,
+        "column": 28
+      },
+      "end": {
+        "line": 45,
+        "column": 32
+      }
+    },
+    "replacement": "0",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "find_available_port",
+      "return_type": "-> Option<u16>",
+      "span": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 12,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 11,
+        "column": 9
+      }
+    },
+    "replacement": "Some(1)",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/server.rs",
+    "function": {
+      "function_name": "WebServer::run",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 29,
+          "column": 5
+        },
+        "end": {
+          "line": 47,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 31,
+        "column": 9
+      },
+      "end": {
+        "line": 46,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "format_file_size",
+      "return_type": "-> String",
+      "span": {
+        "start": {
+          "line": 78,
+          "column": 1
+        },
+        "end": {
+          "line": 80,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 79,
+        "column": 5
+      },
+      "end": {
+        "line": 79,
+        "column": 30
+      }
+    },
+    "replacement": "String::new()",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device",
+      "return_type": "-> Option<DeviceInfo>",
+      "span": {
+        "start": {
+          "line": 110,
+          "column": 5
+        },
+        "end": {
+          "line": 160,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 111,
+        "column": 9
+      },
+      "end": {
+        "line": 159,
+        "column": 11
+      }
+    },
+    "replacement": "Some(Default::default())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 49
+      },
+      "end": {
+        "line": 47,
+        "column": 50
+      }
+    },
+    "replacement": "+",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/file.rs",
+    "function": {
+      "function_name": "get_file_info",
+      "return_type": "-> Result<FileInfo>",
+      "span": {
+        "start": {
+          "line": 12,
+          "column": 1
+        },
+        "end": {
+          "line": 52,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 29,
+        "column": 15
+      },
+      "end": {
+        "line": 29,
+        "column": 17
+      }
+    },
+    "replacement": "<<",
+    "genre": "BinaryOperator"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/cli/mod.rs",
+    "function": {
+      "function_name": "Cli::run",
+      "return_type": "-> Result<()>",
+      "span": {
+        "start": {
+          "line": 39,
+          "column": 5
+        },
+        "end": {
+          "line": 91,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 41,
+        "column": 9
+      },
+      "end": {
+        "line": 90,
+        "column": 24
+      }
+    },
+    "replacement": "Ok(())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "is_port_available",
+      "return_type": "-> bool",
+      "span": {
+        "start": {
+          "line": 14,
+          "column": 1
+        },
+        "end": {
+          "line": 22,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 16,
+        "column": 5
+      },
+      "end": {
+        "line": 21,
+        "column": 6
+      }
+    },
+    "replacement": "true",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/network.rs",
+    "function": {
+      "function_name": "get_available_port_or_default",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 24,
+          "column": 1
+        },
+        "end": {
+          "line": 48,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 27,
+        "column": 5
+      },
+      "end": {
+        "line": 47,
+        "column": 19
+      }
+    },
+    "replacement": "1",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::discover",
+      "return_type": "-> Result<Vec<DeviceInfo>>",
+      "span": {
+        "start": {
+          "line": 84,
+          "column": 5
+        },
+        "end": {
+          "line": 108,
+          "column": 6
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 97,
+        "column": 21
+      },
+      "end": {
+        "line": 101,
+        "column": 23
+      }
+    },
+    "replacement": "",
+    "genre": "MatchArm"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::new(vec![Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "list_files",
+      "return_type": "-> Result<Json<Vec<FileInfo>>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 31,
+          "column": 1
+        },
+        "end": {
+          "line": 41,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 34,
+        "column": 5
+      },
+      "end": {
+        "line": 40,
+        "column": 6
+      }
+    },
+    "replacement": "Ok(Json::from_iter([vec![Default::default()]]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/discovery/mod.rs",
+    "function": {
+      "function_name": "ServiceDiscovery::service_to_device::extract_value",
+      "return_type": "-> Option<String>",
+      "span": {
+        "start": {
+          "line": 114,
+          "column": 9
+        },
+        "end": {
+          "line": 121,
+          "column": 10
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 115,
+        "column": 13
+      },
+      "end": {
+        "line": 120,
+        "column": 14
+      }
+    },
+    "replacement": "Some(\"xyzzy\".into())",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_max_file_size",
+      "return_type": "-> u64",
+      "span": {
+        "start": {
+          "line": 47,
+          "column": 1
+        },
+        "end": {
+          "line": 47,
+          "column": 57
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 37
+      },
+      "end": {
+        "line": 47,
+        "column": 55
+      }
+    },
+    "replacement": "1",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/core/config.rs",
+    "function": {
+      "function_name": "default_port",
+      "return_type": "-> u16",
+      "span": {
+        "start": {
+          "line": 45,
+          "column": 1
+        },
+        "end": {
+          "line": 45,
+          "column": 34
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 45,
+        "column": 28
+      },
+      "end": {
+        "line": 45,
+        "column": 32
+      }
+    },
+    "replacement": "1",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/web/handlers/api.rs",
+    "function": {
+      "function_name": "upload_file",
+      "return_type": "-> Result<Json<FileInfo>, StatusCode>",
+      "span": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 114,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 47,
+        "column": 5
+      },
+      "end": {
+        "line": 113,
+        "column": 33
+      }
+    },
+    "replacement": "Ok(Json::from_iter([Default::default()]))",
+    "genre": "FnValue"
+  },
+  {
+    "package": "rustdrop",
+    "file": "src/utils/qrcode.rs",
+    "function": {
+      "function_name": "generate_qr_code",
+      "return_type": "-> Result<String>",
+      "span": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 20,
+          "column": 2
+        }
+      }
+    },
+    "span": {
+      "start": {
+        "line": 6,
+        "column": 5
+      },
+      "end": {
+        "line": 19,
+        "column": 15
+      }
+    },
+    "replacement": "Ok(String::new())",
+    "genre": "FnValue"
+  }
+]

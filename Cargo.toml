@@ -60,7 +60,7 @@ config = "0.14"
 [dev-dependencies]
 # Testing frameworks
 tokio-test = "0.4"
-tempfile = "3.8"
+tempfile = "3.0"
 criterion = { version = "0.5", features = ["html_reports"] }
 
 # Mock and test utilities
@@ -70,12 +70,12 @@ assert_cmd = "2.0"
 predicates = "3.0"
 
 # Property-based testing
-proptest = "1.4"
+proptest = "1.0"
 quickcheck = "1.0"
 quickcheck_macros = "1.0"
 
 # HTTP testing
-reqwest = { version = "0.11", features = ["json"] }
+reqwest = { version = "0.11", features = ["json", "multipart"] }
 hyper = { version = "1.0", features = ["full"] }
 bytes = "1.5"
 
@@ -87,6 +87,9 @@ rstest = "0.18"
 # End-to-end testing
 test-log = "0.2"
 env_logger = "0.10"
+
+# New regex dependency
+regex = "1.0"
 
 [profile.release]
 lto = true

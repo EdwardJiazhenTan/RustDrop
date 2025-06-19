@@ -1,0 +1,125 @@
+# Configuration for cargo-deny
+# https://embarkstudios.github.io/cargo-deny/
+
+[advisories]
+# Version 2 opts into the new behavior where all advisories are denied by default
+version = 2
+# The path where the advisory database is cloned/fetched into
+db-path = "~/.cargo/advisory-db"
+# The url(s) of the advisory databases to use
+db-urls = ["https://github.com/rustsec/advisory-db"]
+# Determines if unmaintained advisories will result in an error
+unmaintained = "none"
+# A list of advisory IDs to ignore
+ignore = [
+    "RUSTSEC-2024-0384", # instant is unmaintained - used transitively by test dependencies
+]
+
+[licenses]
+# Version 2 opts into the new behavior where all licenses are denied unless explicitly allowed
+version = 2
+# Allow common open-source licenses actually used in the project
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+]
+
+# Confidence threshold for detecting a license from a license text.
+# Possible values are between 0.0 and 1.0 (1.0 meaning perfect match)
+confidence-threshold = 0.8
+
+[[licenses.exceptions]]
+# Allow Windows-specific crates with dual MIT/Apache-2.0 licensing
+allow = ["MIT", "Apache-2.0"]
+name = "windows_aarch64_gnullvm"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "windows_aarch64_msvc"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "windows_i686_gnu"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "windows_i686_gnullvm"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "windows_i686_msvc"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "windows_x86_64_gnu"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "windows_x86_64_gnullvm"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "windows_x86_64_msvc"
+
+[[licenses.exceptions]]
+allow = ["MIT"]
+name = "winnow"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0"]
+name = "yaml-rust2"
+
+[[licenses.exceptions]]
+allow = ["BSD-2-Clause", "Apache-2.0", "MIT"]
+name = "zerocopy"
+
+[[licenses.exceptions]]
+allow = ["MIT", "Apache-2.0", "Zlib"]
+name = "zune-inflate"
+
+[[licenses.exceptions]]
+allow = ["Apache-2.0", "Apache-2.0 WITH LLVM-exception", "MIT"]
+name = "wit-bindgen-rt"
+
+[bans]
+# Lint level for when multiple versions of the same crate are detected
+multiple-versions = "warn"
+# Lint level for when a crate version requirement is `*`
+wildcards = "allow"
+# The graph highlighting used when creating dotgraphs for crates
+# with multiple versions
+highlight = "all"
+# List of crates that are allowed to have multiple versions
+allow = []
+# List of crates to deny
+deny = []
+# Allow specific duplicate dependencies that are unavoidable
+skip = [
+    { name = "windows-targets", version = "*" },
+    { name = "windows_aarch64_gnullvm", version = "*" },
+    { name = "windows_aarch64_msvc", version = "*" },
+    { name = "windows_i686_gnu", version = "*" },
+    { name = "windows_i686_msvc", version = "*" },
+    { name = "windows_x86_64_gnu", version = "*" },
+    { name = "windows_x86_64_gnullvm", version = "*" },
+    { name = "windows_x86_64_msvc", version = "*" },
+]
+# Similarly to `skip` allows you to skip certain crates from being checked for duplicates.
+skip-tree = []
+
+[sources]
+# Lint level for what to happen when a crate from a crate registry that is
+# not in the allow list is encountered
+unknown-registry = "warn"
+# Lint level for what to happen when a crate from a git repository that is not
+# in the allow list is encountered
+unknown-git = "warn"
+# List of URLs for allowed crate registries. Defaults to the crates.io index
+# if not specified. If it is specified but empty, no registries are allowed.
+allow-registry = ["https://github.com/rust-lang/crates.io-index"]
+# List of URLs for allowed Git repositories
+allow-git = [] 
