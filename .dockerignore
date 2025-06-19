@@ -1,0 +1,33 @@
+# Build artifacts
+target/
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# GitHub Actions
+.github/
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
+files/
+# Configuration files (exclude from image but keep example)
+rustdrop.toml
+
+# OS
+.DS_Store
+Thumbs.db 

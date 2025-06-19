@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  rustdrop:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./files:/app/files
+      - ./rustdrop.toml:/app/rustdrop.toml:ro
+    environment:
+      - RUSTDROP_SERVER__PORT=8080
+      - RUSTDROP_SERVER__HOST=0.0.0.0
+      - RUSTDROP_FILES__DIRECTORY=/app/files
+      - RUSTDROP_UI__QR_CODE=true
+      - RUSTDROP_DISCOVERY__ENABLED=true
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8080/api/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - rustdrop-net
+
+networks:
+  rustdrop-net:
+    driver: bridge

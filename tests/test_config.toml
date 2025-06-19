@@ -1,0 +1,69 @@
+# RustDrop Test Configuration
+
+[general]
+timeout_seconds = 30
+log_level = "debug"
+parallel_test_threads = 4
+
+[unit_tests]
+timeout_seconds = 10
+verbose = true
+
+[integration_tests]
+timeout_seconds = 60
+server_startup_wait_seconds = 15
+test_port_range_start = 8080
+test_port_range_end = 8200
+
+[e2e_tests]
+timeout_seconds = 120
+server_startup_wait_seconds = 20
+server_shutdown_wait_seconds = 10
+concurrent_request_count = 20
+load_test_requests = 1000
+
+[stress_tests]
+timeout_seconds = 300
+max_concurrent_threads = 16
+file_creation_batch_size = 100
+large_file_max_size_mb = 100
+memory_stress_duration_seconds = 60
+
+[security_tests]
+timeout_seconds = 180
+path_traversal_attempts = 50
+malicious_input_variations = 100
+rate_limit_requests_per_second = 100
+
+[performance_tests]
+timeout_seconds = 240
+benchmark_iterations = 1000
+warmup_iterations = 100
+measurement_time_seconds = 10
+target_latency_ms = 100
+
+[chaos_tests]
+timeout_seconds = 300
+cpu_stress_duration_seconds = 30
+memory_stress_duration_seconds = 30
+network_latency_ms = 100
+failure_injection_rate = 0.1
+
+[docker_tests]
+timeout_seconds = 180
+container_startup_wait_seconds = 30
+health_check_retries = 10
+load_test_duration_seconds = 60
+
+[file_operations]
+max_test_file_size_mb = 50
+test_file_count_small = 1000
+test_file_count_medium = 100
+test_file_count_large = 10
+temp_directory_cleanup = true
+
+[network]
+connection_timeout_seconds = 30
+request_timeout_seconds = 15
+retry_attempts = 3
+retry_delay_seconds = 1 

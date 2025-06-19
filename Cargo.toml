@@ -1,0 +1,102 @@
+[package]
+name = "rustdrop"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "Cross-platform file transfer tool with web interface"
+license = "MIT"
+repository = "https://github.com/yourusername/rustdrop"
+
+[[bin]]
+name = "rustdrop"
+path = "src/main.rs"
+
+[[bench]]
+name = "performance"
+harness = false
+
+[dependencies]
+# Web framework
+axum = { version = "0.7", features = ["multipart"] }
+tower = { version = "0.4", features = ["timeout"] }
+tower-http = { version = "0.5", features = ["fs", "cors", "trace"] }
+
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.6", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# CLI
+clap = { version = "4.4", features = ["derive"] }
+
+# Service discovery
+mdns-sd = { version = "0.10", optional = true }
+
+# QR code generation
+qrcode = "0.14"
+image = "0.24"
+
+# Utilities
+anyhow = "1.0"
+thiserror = "1.0"
+mime_guess = "2.0"
+humansize = "2.1"
+hostname = "0.3"
+local-ip-address = "0.5"
+open = "5.0"
+
+# Configuration
+toml = "0.8"
+config = "0.14"
+
+[dev-dependencies]
+# Testing frameworks
+tokio-test = "0.4"
+tempfile = "3.8"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+# Mock and test utilities
+mockall = "0.12"
+wiremock = "0.5"
+assert_cmd = "2.0"
+predicates = "3.0"
+
+# Property-based testing
+proptest = "1.4"
+quickcheck = "1.0"
+quickcheck_macros = "1.0"
+
+# HTTP testing
+reqwest = { version = "0.11", features = ["json"] }
+hyper = { version = "1.0", features = ["full"] }
+bytes = "1.5"
+
+# Additional test utilities
+pretty_assertions = "1.4"
+serial_test = "3.0"
+rstest = "0.18"
+
+# End-to-end testing
+test-log = "0.2"
+env_logger = "0.10"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.bench]
+debug = true
+
+[features]
+default = ["mdns"]
+mdns = ["mdns-sd"]
