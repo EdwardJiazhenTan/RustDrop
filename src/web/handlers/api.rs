@@ -159,11 +159,16 @@ pub async fn discover_devices() -> Result<Json<Vec<DeviceInfo>>, StatusCode> {
     }
 }
 
+/// Handle 404 errors for API routes
+pub async fn api_not_found() -> impl IntoResponse {
+    (StatusCode::NOT_FOUND, Json(serde_json::json!({
+        "error": "API endpoint not found"
+    })))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
-    use chrono::Utc;
-    use serde_json::Value;
     use std::fs::File;
     use std::io::Write;
     use tempfile::TempDir;
@@ -176,18 +181,6 @@ mod tests {
             ip: "127.0.0.1".to_string(),
             port: 8080,
             os: "linux".to_string(),
-        }
-    }
-
-    fn create_test_file_info(name: &str, path: PathBuf) -> FileInfo {
-        FileInfo {
-            id: Uuid::new_v4(),
-            name: name.to_string(),
-            path,
-            size: 100,
-            size_human: "100 B".to_string(),
-            modified: Utc::now(),
-            mime_type: "text/plain".to_string(),
         }
     }
 

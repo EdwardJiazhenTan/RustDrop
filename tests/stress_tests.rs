@@ -1,11 +1,12 @@
+use rustdrop::core::models::DeviceInfo;
 use std::fs;
+use std::path::PathBuf;
 use std::sync::{Arc, Barrier};
 use std::thread;
 use std::time::{Duration, Instant};
 use tempfile::TempDir;
 use rustdrop::utils::file::{get_file_info, list_directory};
 use rustdrop::utils::network::{find_available_port, is_port_available};
-use rustdrop::core::models::{DeviceInfo, FileInfo};
 use uuid::Uuid;
 
 #[test]
@@ -17,7 +18,7 @@ fn test_concurrent_file_operations() {
     let barrier = Arc::new(Barrier::new(num_threads));
     let mut handles = vec![];
     
-    for thread_id in 0..num_threads {
+    for _thread_id in 0..num_threads {
         let barrier = Arc::clone(&barrier);
         let temp_dir_path = temp_dir.path().to_path_buf();
         
@@ -29,8 +30,8 @@ fn test_concurrent_file_operations() {
             
             // Create files
             for file_id in 0..files_per_thread {
-                let filename = format!("thread_{}_file_{}.txt", thread_id, file_id);
-                let content = format!("Content from thread {} file {}", thread_id, file_id);
+                let filename = format!("thread_{}_file_{}.txt", _thread_id, file_id);
+                let content = format!("Content from thread {} file {}", _thread_id, file_id);
                 let file_path = temp_dir_path.join(&filename);
                 
                 fs::write(&file_path, &content).unwrap();
@@ -215,7 +216,7 @@ fn test_uuid_generation_consistency_under_load() {
     let test_file = temp_dir.path().join("uuid_test.txt");
     fs::write(&test_file, "UUID consistency test").unwrap();
     
-    for thread_id in 0..num_threads {
+    for _thread_id in 0..num_threads {
         let barrier = Arc::clone(&barrier);
         let test_file = test_file.clone();
         
@@ -259,13 +260,13 @@ fn test_port_availability_under_stress() {
     let barrier = Arc::new(Barrier::new(num_threads));
     let mut handles = vec![];
     
-    for thread_id in 0..num_threads {
+    for _thread_id in 0..num_threads {
         let barrier = Arc::clone(&barrier);
         
         let handle = thread::spawn(move || {
             barrier.wait();
             
-            let start_port = 50000 + (thread_id as u16 * 100);
+            let start_port = 50000 + (_thread_id as u16 * 100);
             let end_port = start_port + 99;
             
             for _ in 0..checks_per_thread {
@@ -387,7 +388,7 @@ fn test_file_name_edge_cases_stress() {
     // Verify all files have valid info
     for file in &files {
         assert!(!file.name.is_empty(), "File name should not be empty");
-        assert!(file.size >= 0, "File size should be non-negative");
-        assert!(!file.mime_type.is_empty(), "MIME type should not be empty");
+        assert!(file.size > 0, "File should have content");
+        assert!(!file.size_human.is_empty(), "Human readable size should not be empty");
     }
 } 

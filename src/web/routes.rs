@@ -15,6 +15,7 @@ use crate::web::handlers::{
         upload_file,
         download_file,
         discover_devices,
+        api_not_found,
     },
     static_files::serve_index,
 };
@@ -27,6 +28,7 @@ pub fn create_routes(directory: PathBuf, device_info: DeviceInfo, max_file_size:
         .route("/files", get(list_files).post(upload_file))
         .route("/files/:id", get(download_file))
         .route("/discover", get(discover_devices))
+        .fallback(api_not_found)
         .with_state((directory.clone(), device_info));
     
     // Static file serving for the web UI

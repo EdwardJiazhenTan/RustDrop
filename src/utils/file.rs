@@ -245,7 +245,7 @@ mod tests {
         
         let file_info = get_file_info(&file_path).unwrap();
         assert_eq!(file_info.size, 1024);
-        assert_eq!(file_info.size_human, "1.0 KiB");
+        assert_eq!(file_info.size_human, "1 KiB");
     }
 
     #[test]

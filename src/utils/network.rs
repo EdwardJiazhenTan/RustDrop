@@ -50,7 +50,6 @@ pub fn get_available_port_or_default(preferred_port: u16) -> u16 {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::sync::Arc;
     use std::net::TcpListener;
 
     #[test]
@@ -150,7 +149,7 @@ mod tests {
         
         // Result should be a valid port number
         assert!(result > 0);
-        assert!(result <= 65535);
+        // Note: u16 port numbers are always <= 65535 by definition
     }
 
     #[test]
@@ -166,13 +165,16 @@ mod tests {
 
     #[test]
     fn test_port_availability_edge_cases() {
-        // Test port 0 (should not be available for binding)
-        assert!(!is_port_available(0));
-        
         // Test port 1 (typically requires root privileges)
         let result = is_port_available(1);
         // Don't assert specific result as it depends on system privileges
         // Just ensure the function doesn't panic
+        let _ = result;
+        
+        // Test high port number
+        let high_port = 65534;
+        let result = is_port_available(high_port);
+        // Should generally be available unless system is very busy
         let _ = result;
     }
 

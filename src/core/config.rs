@@ -177,9 +177,18 @@ mod tests {
         let toml_content = r#"
             [server]
             port = 8080
+            host = "0.0.0.0"
+            max_file_size = 1073741824
 
             [files]
             directory = "/tmp/uploads"
+
+            [discovery]
+            enabled = true
+
+            [ui]
+            qr_code = true
+            open_browser = false
         "#;
 
         let config = AppConfig::from_toml(toml_content).unwrap();
@@ -191,6 +200,17 @@ mod tests {
         let toml_content = r#"
             [server]
             port = 3000
+            host = "0.0.0.0"
+            max_file_size = 1073741824
+
+            [files]
+
+            [discovery]
+            enabled = true
+
+            [ui]
+            qr_code = true
+            open_browser = false
         "#;
 
         let config = AppConfig::from_toml(toml_content).unwrap();

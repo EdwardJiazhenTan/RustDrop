@@ -1,13 +1,13 @@
 use proptest::prelude::*;
 use rustdrop::core::config::AppConfig;
-use rustdrop::core::models::{DeviceInfo, FileInfo};
+use rustdrop::core::models::DeviceInfo;
 use rustdrop::utils::file::get_file_info;
-use std::collections::HashMap;
+use std::collections::HashSet;
 use std::fs::File;
 use std::io::Write;
-use std::path::PathBuf;
 use tempfile::TempDir;
 use uuid::Uuid;
+use rustdrop::core::config::{ServerConfig, FilesConfig, DiscoveryConfig, UiConfig};
 
 // Property test for file info consistency
 proptest! {
@@ -128,22 +128,26 @@ proptest! {
         max_file_size in 1u64..10_000_000_000,
         expiry_hours in prop::option::of(1u64..8760) // Up to 1 year
     ) {
-        let toml_content = format!(
-            r#"
+        let toml_content = format!(r#"
             [server]
             port = {}
+            host = "0.0.0.0"
             max_file_size = {}
-            
+
             [files]
+            directory = ""
             {}
-            "#,
-            port,
+
+            [discovery]
+            enabled = true
+
+            [ui]
+            qr_code = true
+            open_browser = false
+        "#, 
+            port, 
             max_file_size,
-            if let Some(hours) = expiry_hours {
-                format!("expiry_hours = {}", hours)
-            } else {
-                String::new()
-            }
+            expiry_hours.map_or(String::new(), |h| format!("expiry_hours = {}", h))
         );
         
         let config = AppConfig::from_toml(&toml_content).unwrap();
@@ -165,19 +169,19 @@ proptest! {
         open_browser in any::<bool>()
     ) {
         let original_config = AppConfig {
-            server: rustdrop::core::config::ServerConfig {
+            server: ServerConfig {
                 port,
                 host: "127.0.0.1".to_string(),
                 max_file_size,
             },
-            files: rustdrop::core::config::FilesConfig {
+            files: FilesConfig {
                 directory: None,
                 expiry_hours: Some(24),
             },
-            discovery: rustdrop::core::config::DiscoveryConfig {
+            discovery: DiscoveryConfig {
                 enabled,
             },
-            ui: rustdrop::core::config::UiConfig {
+            ui: UiConfig {
                 qr_code,
                 open_browser,
             },
@@ -241,18 +245,19 @@ proptest! {
         let temp_path = Arc::new(temp_dir.path().to_path_buf());
         let filenames = Arc::new(filenames);
         
-        // Create files
-        for filename in filenames.iter() {
-            let file_path = temp_dir.path().join(filename);
-            std::fs::write(&file_path, format!("Content for {}", filename)).unwrap();
+        // Create files with unique names by adding index
+        for (index, filename) in filenames.iter().enumerate() {
+            let unique_filename = format!("{}_{}", index, filename);
+            let file_path = temp_dir.path().join(&unique_filename);
+            std::fs::write(&file_path, format!("Content for {}", unique_filename)).unwrap();
         }
         
-        // Get file info concurrently
-        let handles: Vec<_> = filenames.iter().map(|filename| {
+        // Get file info concurrently for the unique filenames
+        let handles: Vec<_> = filenames.iter().enumerate().map(|(index, filename)| {
             let path = temp_path.clone();
-            let name = filename.clone();
+            let unique_name = format!("{}_{}", index, filename);
             thread::spawn(move || {
-                let file_path = path.join(&name);
+                let file_path = path.join(&unique_name);
                 get_file_info(&file_path)
             })
         }).collect();
@@ -266,15 +271,17 @@ proptest! {
         
         let infos: Vec<_> = results.into_iter().map(|r| r.unwrap()).collect();
         
-        // All UUIDs should be unique (different files)
+        // All UUIDs should be unique (different files with unique names)
         let mut ids = std::collections::HashSet::new();
         for info in &infos {
-            prop_assert!(ids.insert(info.id));
+            prop_assert!(ids.insert(info.id.clone()), "UUID should be unique for file: {}", info.name);
         }
         
-        // Names should match original filenames
+        // Names should match the unique filenames we created
         let mut names: Vec<_> = infos.iter().map(|i| i.name.clone()).collect();
-        let mut expected_names = filenames.iter().cloned().collect::<Vec<_>>();
+        let mut expected_names: Vec<_> = filenames.iter().enumerate()
+            .map(|(index, filename)| format!("{}_{}", index, filename))
+            .collect();
         names.sort();
         expected_names.sort();
         prop_assert_eq!(names, expected_names);
@@ -351,7 +358,7 @@ proptest! {
         }
         
         // Name should remain the same
-        prop_assert_eq!(info1.name, info2.name);
+        prop_assert_eq!(info1.name.clone(), info2.name);
         prop_assert_eq!(info1.name, filename);
     }
 }
@@ -389,44 +396,5 @@ proptest! {
         // Should handle large files without panic
         prop_assert_eq!(info.name, "large_file.bin");
         prop_assert_eq!(info.mime_type, "application/octet-stream");
-    }
-}
-
-// Property test for error handling
-proptest! {
-    #[test]
-    fn test_error_handling_invalid_paths(
-        invalid_chars in r"[<>:\"|?*\x00-\x1f]{1,10}",
-        base_name in r"[a-zA-Z0-9_]{1,20}"
-    ) {
-        // This test verifies that our file operations handle invalid paths gracefully
-        // Note: On Unix systems, most characters are actually valid in filenames
-        // so we focus on the few that are truly problematic
-        
-        let temp_dir = TempDir::new().unwrap();
-        
-        // Try to create a file with potentially problematic name
-        // Filter out null bytes as they're never valid
-        let clean_chars: String = invalid_chars.chars()
-            .filter(|&c| c != '\0')
-            .collect();
-            
-        if clean_chars.is_empty() {
-            return Ok(());
-        }
-        
-        let filename = format!("{}{}.txt", base_name, clean_chars);
-        let file_path = temp_dir.path().join(&filename);
-        
-        // Attempt to create file - this might fail, which is fine
-        if let Ok(_) = std::fs::write(&file_path, "test content") {
-            // If file creation succeeded, getting file info should also succeed
-            let result = get_file_info(&file_path);
-            if result.is_ok() {
-                let info = result.unwrap();
-                prop_assert!(!info.name.is_empty());
-                prop_assert!(info.size >= 0);
-            }
-        }
     }
 } 

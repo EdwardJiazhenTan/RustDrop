@@ -113,7 +113,7 @@ jobs:
         run: cargo geiger --format json > unsafe-report.json
 
       - name: Upload unsafe code report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: unsafe-code-report
           path: unsafe-report.json
@@ -156,7 +156,7 @@ jobs:
             src/core/ src/utils/
 
       - name: Upload mutation test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: mutation-test-report
@@ -243,7 +243,7 @@ jobs:
           rm -rf test_files
 
       - name: Upload performance results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: performance-results
           path: target/criterion/
@@ -381,7 +381,7 @@ jobs:
           fail_ci_if_error: false
 
       - name: Upload coverage reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: coverage-reports
           path: |
@@ -563,7 +563,7 @@ jobs:
           output-file: sbom.spdx.json
 
       - name: Upload SBOM
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sbom
           path: sbom.spdx.json
@@ -773,7 +773,7 @@ jobs:
           fi
 
       - name: Upload pipeline report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pipeline-report
           path: pipeline-report.md

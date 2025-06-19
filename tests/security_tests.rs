@@ -1,20 +1,29 @@
 use axum::{
     body::Body,
-    http::{Request, StatusCode, HeaderValue, Method},
+    http::{Request, StatusCode, Method, HeaderValue},
     Router,
 };
-use rustdrop::core::models::DeviceInfo;
 use rustdrop::web::routes::create_routes;
-use std::fs::File;
-use std::io::Write;
+use rustdrop::core::models::DeviceInfo;
+use serde_json::Value;
 use tempfile::TempDir;
-use tower::ServiceExt;
+use tower::util::ServiceExt;
+use tower_http::cors::{Any, CorsLayer};
 
 // Helper function to create test app
-fn create_test_app(directory: std::path::PathBuf) -> Router {
+fn create_test_app(temp_dir: &TempDir) -> Router {
     let device_info = DeviceInfo::new(8080);
-    let max_file_size = 1024 * 1024; // 1MB
+    let directory = temp_dir.path().to_path_buf();
+    let max_file_size = 10 * 1024 * 1024; // 10MB
+    
+    // Add CORS layer like in the actual server
+    let cors = CorsLayer::new()
+        .allow_origin(Any)
+        .allow_methods(Any)
+        .allow_headers(Any);
+    
     create_routes(directory, device_info, max_file_size)
+        .layer(cors)
 }
 
 #[tokio::test]
@@ -26,7 +35,7 @@ async fn test_path_traversal_protection() {
     let secret_file = parent_dir.join("secret.txt");
     std::fs::write(&secret_file, "secret content").unwrap();
     
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Test various path traversal attempts
     let malicious_paths = vec![
@@ -62,7 +71,7 @@ async fn test_path_traversal_protection() {
 #[tokio::test]
 async fn test_cors_headers() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Test preflight request
     let request = Request::builder()
@@ -86,7 +95,7 @@ async fn test_cors_headers() {
 #[tokio::test]
 async fn test_cors_origins() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let test_origins = vec![
         "http://localhost:3000",
@@ -118,7 +127,7 @@ async fn test_cors_origins() {
 #[tokio::test]
 async fn test_malicious_filename_handling() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Create files with potentially problematic names (that are still valid on Unix)
     let problematic_names = vec![
@@ -161,7 +170,7 @@ async fn test_malicious_filename_handling() {
 #[tokio::test]
 async fn test_large_filename_handling() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Create file with very long name (255 chars is typical filesystem limit)
     let long_name = format!("{}.txt", "a".repeat(250));
@@ -181,7 +190,7 @@ async fn test_large_filename_handling() {
 #[tokio::test]
 async fn test_invalid_uuid_handling() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let invalid_uuids = vec![
         "not-a-uuid",
@@ -213,7 +222,7 @@ async fn test_invalid_uuid_handling() {
 #[tokio::test]
 async fn test_http_method_restrictions() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Test unsupported methods on various endpoints
     let test_cases = vec![
@@ -244,7 +253,7 @@ async fn test_http_method_restrictions() {
 #[tokio::test]
 async fn test_request_size_limits() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Create a very large request body (beyond reasonable limits)
     let large_body = "x".repeat(10 * 1024 * 1024); // 10MB
@@ -269,7 +278,7 @@ async fn test_request_size_limits() {
 #[tokio::test] 
 async fn test_content_type_validation() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Test requests with malicious or unexpected content types
     let malicious_content_types = vec![
@@ -277,7 +286,6 @@ async fn test_content_type_validation() {
         "text/html; <script>alert('xss')</script>",
         "multipart/form-data; boundary=--evil",
         "../../../etc/passwd",
-        "application/json\r\nX-Injected-Header: malicious",
     ];
 
     for content_type in malicious_content_types {
@@ -294,16 +302,45 @@ async fn test_content_type_validation() {
         // The exact response depends on implementation but should not crash
         assert!(response.status().is_client_error() || response.status().is_server_error() || response.status().is_success());
     }
+    
+    // Test content type with newline injection - this should be rejected by HTTP library
+    let result = Request::builder()
+        .method(Method::POST)
+        .uri("/api/upload")
+        .header("content-type", "application/json\r\nX-Injected-Header: malicious")
+        .body(Body::from("test data"));
+    
+    // This should fail to create the request due to invalid header value
+    assert!(result.is_err());
 }
 
 #[tokio::test]
 async fn test_header_injection_protection() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
-    // Test header injection attempts
-    let injection_attempts = vec![
+    // Test header injection attempts - valid ones
+    let safe_values = vec![
         "normal-value",
+        "value-with-dashes",
+        "value123",
+    ];
+
+    for value in safe_values {
+        let request = Request::builder()
+            .uri("/api/health")
+            .header("X-Custom-Header", value)
+            .body(Body::empty())
+            .unwrap();
+
+        let response = app.clone().oneshot(request).await.unwrap();
+        
+        // Should handle safe headers normally
+        assert!(response.status().is_success());
+    }
+    
+    // Test that malicious header values are rejected by HTTP library
+    let malicious_values = vec![
         "value\r\nX-Injected: malicious",
         "value\nX-Injected: malicious", 
         "value\r\nSet-Cookie: evil=true",
@@ -312,22 +349,14 @@ async fn test_header_injection_protection() {
         "value\x0dX-Injected: malicious",
     ];
 
-    for injection_value in injection_attempts {
-        // Test with various headers that might be echoed back
-        let request = Request::builder()
+    for injection_value in malicious_values {
+        // These should fail to create the request due to invalid header values
+        let result = Request::builder()
             .uri("/api/health")
             .header("X-Custom-Header", injection_value)
-            .body(Body::empty())
-            .unwrap();
-
-        let response = app.clone().oneshot(request).await.unwrap();
+            .body(Body::empty());
         
-        // Should not crash and should not contain injected headers
-        assert!(response.status().is_success() || response.status().is_client_error());
-        
-        // Check that injected headers are not present in response
-        assert!(!response.headers().contains_key("X-Injected"));
-        assert!(!response.headers().contains_key("Set-Cookie") || 
-                response.headers().get("Set-Cookie").unwrap() != "evil=true");
+        // HTTP library should reject these malicious header values
+        assert!(result.is_err(), "HTTP library should reject malicious header: {}", injection_value);
     }
 } 

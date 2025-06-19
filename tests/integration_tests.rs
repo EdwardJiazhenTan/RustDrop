@@ -3,27 +3,36 @@ use axum::{
     http::{Request, StatusCode},
     Router,
 };
-use bytes::Bytes;
-use rustdrop::core::{config::AppConfig, models::DeviceInfo};
-use rustdrop::utils::file::{get_file_info, list_directory};
 use rustdrop::web::routes::create_routes;
+use rustdrop::core::models::DeviceInfo;
+use rustdrop::{AppConfig, get_file_info, list_directory};
 use serde_json::Value;
 use std::fs::File;
 use std::io::Write;
 use tempfile::TempDir;
-use tower::ServiceExt;
+use tower::util::ServiceExt;
+use tower_http::cors::{Any, CorsLayer};
 
 // Helper function to create test app
-fn create_test_app(directory: std::path::PathBuf) -> Router {
+fn create_test_app(temp_dir: &TempDir) -> Router {
     let device_info = DeviceInfo::new(8080);
-    let max_file_size = 1024 * 1024; // 1MB
+    let directory = temp_dir.path().to_path_buf();
+    let max_file_size = 10 * 1024 * 1024; // 10MB
+    
+    // Add CORS layer like in the actual server
+    let cors = CorsLayer::new()
+        .allow_origin(Any)
+        .allow_methods(Any)
+        .allow_headers(Any);
+    
     create_routes(directory, device_info, max_file_size)
+        .layer(cors)
 }
 
 #[tokio::test]
 async fn test_health_endpoint() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let request = Request::builder()
         .uri("/api/health")
@@ -48,7 +57,7 @@ async fn test_health_endpoint() {
 #[tokio::test]
 async fn test_device_info_endpoint() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let request = Request::builder()
         .uri("/api/device")
@@ -74,7 +83,7 @@ async fn test_device_info_endpoint() {
 #[tokio::test]
 async fn test_list_files_empty() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let request = Request::builder()
         .uri("/api/files")
@@ -110,7 +119,7 @@ async fn test_list_files_with_content() {
         write!(file, "{}", content).unwrap();
     }
 
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let request = Request::builder()
         .uri("/api/files")
@@ -149,7 +158,7 @@ async fn test_list_files_with_content() {
 #[tokio::test]
 async fn test_download_nonexistent_file() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let fake_uuid = "123e4567-e89b-12d3-a456-426614174000";
     let request = Request::builder()
@@ -175,7 +184,7 @@ async fn test_download_existing_file() {
     let file_info = get_file_info(&file_path).unwrap();
     let file_id = file_info.id.to_string();
 
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let request = Request::builder()
         .uri(&format!("/api/files/{}", file_id))
@@ -208,7 +217,7 @@ async fn test_download_existing_file() {
 #[tokio::test]
 async fn test_discover_endpoint() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let request = Request::builder()
         .uri("/api/discover")
@@ -228,7 +237,7 @@ async fn test_discover_endpoint() {
 #[tokio::test]
 async fn test_invalid_endpoints() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let test_cases = vec![
         "/api/nonexistent",
@@ -249,7 +258,7 @@ async fn test_invalid_endpoints() {
 #[tokio::test]
 async fn test_cors_headers() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     let request = Request::builder()
         .uri("/api/health")
@@ -269,7 +278,7 @@ async fn test_cors_headers() {
 #[tokio::test]
 async fn test_static_file_fallback() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Request root path should serve index.html (fallback)
     let request = Request::builder().uri("/").body(Body::empty()).unwrap();
@@ -410,7 +419,7 @@ fn test_device_info_creation() {
 #[tokio::test]
 async fn test_error_handling() {
     let temp_dir = TempDir::new().unwrap();
-    let app = create_test_app(temp_dir.path().to_path_buf());
+    let app = create_test_app(&temp_dir);
 
     // Test malformed requests
     let request = Request::builder()

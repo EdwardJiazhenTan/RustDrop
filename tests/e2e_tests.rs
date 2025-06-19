@@ -1,19 +1,19 @@
 use assert_cmd::Command;
 use predicates::prelude::*;
-use std::fs::{self, File};
-use std::io::Write;
-use std::process::{Child, Stdio};
-use std::thread;
+use std::fs;
+use std::path::PathBuf;
+use std::process::{Command as StdCommand, Stdio};
+use std::sync::Arc;
 use std::time::Duration;
 use tempfile::TempDir;
-use reqwest;
-use tokio;
+use tokio::time::sleep;
+use uuid::Uuid;
 
 const SERVER_STARTUP_WAIT: Duration = Duration::from_secs(3);
 const SERVER_SHUTDOWN_WAIT: Duration = Duration::from_secs(2);
 
 struct TestServer {
-    child: Child,
+    child: StdCommand,
     port: u16,
     temp_dir: TempDir,
 }
@@ -29,7 +29,7 @@ impl TestServer {
             .assert()
             .success();
 
-        let child = std::process::Command::new("cargo")
+        let child = StdCommand::new("cargo")
             .args(&["run", "--"])
             .args(&[
                 "--directory", temp_dir.path().to_str().unwrap(),
@@ -43,7 +43,7 @@ impl TestServer {
             .spawn()?;
 
         // Wait for server to start
-        thread::sleep(SERVER_STARTUP_WAIT);
+        sleep(SERVER_STARTUP_WAIT).await;
 
         Ok(TestServer {
             child,
@@ -70,7 +70,7 @@ impl TestServer {
                     return Ok(());
                 }
             }
-            tokio::time::sleep(Duration::from_millis(1000)).await;
+            sleep(Duration::from_millis(1000)).await;
         }
         
         Err("Server failed to become ready".into())
@@ -81,7 +81,7 @@ impl Drop for TestServer {
     fn drop(&mut self) {
         let _ = self.child.kill();
         let _ = self.child.wait();
-        thread::sleep(SERVER_SHUTDOWN_WAIT);
+        sleep(SERVER_SHUTDOWN_WAIT).await;
     }
 }
 
